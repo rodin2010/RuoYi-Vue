@@ -121,6 +121,13 @@
                 <version>${pagehelper.boot.version}</version>
             </dependency>
 
+            <!-- PostgreSQL数据库驱动 -->
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>42.7.4</version>
+            </dependency>
+
             <!-- 获取系统信息 -->
             <dependency>
                 <groupId>com.github.oshi</groupId>
