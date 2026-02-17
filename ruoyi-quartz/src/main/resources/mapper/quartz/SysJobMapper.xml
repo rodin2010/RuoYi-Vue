@@ -71,11 +71,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			<if test="invokeTarget != null and invokeTarget != ''">invoke_target = #{invokeTarget},</if>
  			<if test="cronExpression != null and cronExpression != ''">cron_expression = #{cronExpression},</if>
  			<if test="misfirePolicy != null and misfirePolicy != ''">misfire_policy = #{misfirePolicy},</if>
- 			<if test="concurrent != null and concurrent != ''">concurrent = #{concurrent},</if>
- 			<if test="status !=null">status = #{status},</if>
+ 			<if test="concurrent != null and concurrent != ''">concurrent = CAST(#{concurrent} AS CHARACTER),</if>
+ 			<if test="status !=null">status = CAST(#{status} AS CHARACTER),</if>
  			<if test="remark != null and remark != ''">remark = #{remark},</if>
  			<if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
- 			update_time = sysdate()
+ 			update_time = CURRENT_TIMESTAMP
  		</set>
  		where job_id = #{jobId}
 	</update>
@@ -101,10 +101,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			<if test="cronExpression != null and cronExpression != ''">#{cronExpression},</if>
  			<if test="misfirePolicy != null and misfirePolicy != ''">#{misfirePolicy},</if>
  			<if test="concurrent != null and concurrent != ''">#{concurrent},</if>
- 			<if test="status != null and status != ''">#{status},</if>
+ 			<if test="status != null and status != ''">CAST(#{status} AS CHARACTER),</if>
  			<if test="remark != null and remark != ''">#{remark},</if>
  			<if test="createBy != null and createBy != ''">#{createBy},</if>
- 			sysdate()
+ 			CURRENT_TIMESTAMP
  		)
 	</insert>
 
